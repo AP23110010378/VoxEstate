@@ -140,7 +140,7 @@ export default function Dashboard({ onExitDashboard }) {
             </div>
             <div>
               <h1 className="text-xl font-bold font-display tracking-tight text-[var(--color-text-primary)]">
-                Prop<span className="gradient-text">Voice</span>
+                Vox<span className="gradient-text">Estate</span>
               </h1>
               <p className="text-xs text-[var(--color-text-secondary)] mt-0.5">
                 Campaign Dashboard

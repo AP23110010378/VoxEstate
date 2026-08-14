@@ -126,7 +126,7 @@ export default function LandingPage({ onEnterDashboard }) {
               <Mic size={22} className="text-[var(--color-navy-950)]" />
             </div>
             <span className="text-xl font-bold font-display tracking-tight text-[var(--color-text-primary)]">
-              Prop<span className="gradient-text">Voice</span>
+              Vox<span className="gradient-text">Estate</span>
             </span>
           </a>
 
@@ -174,7 +174,7 @@ export default function LandingPage({ onEnterDashboard }) {
 
         <Reveal delay={0.2}>
           <p className="text-lg md:text-xl text-[var(--color-text-secondary)] max-w-2xl mb-14 leading-relaxed">
-            PropVoice uses conversational AI to call, engage, and qualify your property leads automatically — so your agents only talk to people who are ready to buy or sell.
+            VoxEstate uses conversational AI to call, engage, and qualify your property leads automatically — so your agents only talk to people who are ready to buy or sell.
           </p>
         </Reveal>
 
@@ -392,11 +392,11 @@ export default function LandingPage({ onEnterDashboard }) {
           <div className="flex items-center gap-2.5">
             <Mic size={20} className="text-[var(--color-gold-500)]" />
             <span className="text-lg font-bold font-display text-[var(--color-text-primary)]">
-              Prop<span className="gradient-text">Voice</span>
+              Vox<span className="gradient-text">Estate</span>
             </span>
           </div>
           <p className="text-sm text-[var(--color-text-secondary)]">
-            © {new Date().getFullYear()} PropVoice. Built with FastAPI · LangGraph · Vapi · React
+            © {new Date().getFullYear()} VoxEstate. Built with FastAPI · LangGraph · Vapi · React
           </p>
         </div>
       </footer>

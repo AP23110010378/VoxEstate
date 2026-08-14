@@ -43,9 +43,8 @@ async def lifespan(app: FastAPI):
     await close_db()
 
 
-# Create the FastAPI app
 app = FastAPI(
-    title="Voice Agent SaaS — Multi-Tenant Agentic Voice Orchestrator",
+    title="VoxEstate — Multi-Tenant Agentic Voice Orchestrator",
     description=(
         "A SaaS platform where real estate companies can launch AI voice campaigns "
         "to qualify leads. Built with FastAPI + LangGraph + Vapi.ai + MongoDB."

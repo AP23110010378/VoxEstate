@@ -1,4 +1,4 @@
-# 🎙️ PropVoice — Multi-Tenant Agentic Voice Orchestrator
+# 🎙️ VoxEstate — Multi-Tenant Agentic Voice Orchestrator
 
 > An AI-powered SaaS platform that automates real estate lead qualification using conversational voice agents, LangGraph orchestration, and real-time CRM updates.
 
@@ -9,9 +9,9 @@
 
 ---
 
-## ✨ What is PropVoice?
+## ✨ What is VoxEstate?
 
-PropVoice is a **multi-tenant voice AI platform** built for real estate agencies. Instead of having human agents spend hours cold-calling leads, PropVoice deploys an autonomous AI caller that:
+VoxEstate is a **multi-tenant voice AI platform** built for real estate agencies. Instead of having human agents spend hours cold-calling leads, VoxEstate deploys an autonomous AI caller that:
 
 1. **Dials leads automatically** via Vapi.ai's conversational voice AI
 2. **Holds a natural phone conversation** using a custom prompt per agency
@@ -40,7 +40,7 @@ Built as a full-stack, production-ready system with Docker, async Python, and a 
 
 ```
 ┌─────────────────────────────────────────────────────────────────┐
-│                        PropVoice System                         │
+│                        VoxEstate System                         │
 │                                                                 │
 │  React Dashboard                                                │
 │       │                                                         │

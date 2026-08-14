@@ -61,10 +61,12 @@ app = FastAPI(
 # FastAPI backend (localhost:8000) because they're on different ports.
 app.add_middleware(
     CORSMiddleware,
-    allow_origins=["*"],
+    # FIX: Browsers reject wildcard (*) combined with allow_credentials=True.
+    # Use the explicit frontend URL from environment config instead.
+    allow_origins=[settings.FRONTEND_URL],
     allow_credentials=True,
-    allow_methods=["*"],          # Allow all HTTP methods
-    allow_headers=["*"],          # Allow all headers
+    allow_methods=["*"],
+    allow_headers=["*"],
 )
 
 

@@ -20,38 +20,43 @@ const api = axios.create({
   },
 });
 
-/**
- * Fetch all companies (tenants).
- * Used by TenantSelector to populate the company cards.
- */
+/** Fetch all companies (tenants). */
 export const getCompanies = async () => {
   const response = await api.get('/companies');
   return response.data;
 };
 
-/**
- * Fetch all customers/leads for a specific company.
- * Used by LeadsTable when a company is selected.
- */
-export const getCustomers = async (companyId) => {
-  const response = await api.get(`/customers?company_id=${companyId}`);
+/** Fetch customers/leads for a specific company (with optional pagination). */
+export const getCustomers = async (companyId, skip = 0, limit = 100) => {
+  const response = await api.get(`/customers?company_id=${companyId}&skip=${skip}&limit=${limit}`);
   return response.data;
 };
 
-/**
- * Start an AI voice campaign for a company.
- * Called when the manager clicks "Launch Campaign".
- */
+/** Start an AI voice campaign for a company. */
 export const startCampaign = async (companyId) => {
-  const response = await api.post('/campaign/start', {
-    company_id: companyId,
-  });
+  const response = await api.post('/campaign/start', { company_id: companyId });
   return response.data;
 };
 
 /**
- * Health check — verify backend is running.
+ * Reset all stuck CALL_INITIATED leads back to PENDING.
+ * Use when a campaign crashes and leads are permanently stuck.
  */
+export const resetCampaign = async (companyId) => {
+  const response = await api.post('/campaign/reset', { company_id: companyId });
+  return response.data;
+};
+
+/**
+ * Fetch call logs (transcripts & outcomes) for a company.
+ * Returns the 50 most recent logs, newest first.
+ */
+export const getCallLogs = async (companyId) => {
+  const response = await api.get(`/campaign/call-logs?company_id=${companyId}`);
+  return response.data;
+};
+
+/** Health check — verify backend is running. */
 export const healthCheck = async () => {
   const response = await api.get('/health');
   return response.data;

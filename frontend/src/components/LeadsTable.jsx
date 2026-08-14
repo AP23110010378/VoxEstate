@@ -15,15 +15,22 @@ import StatusBadge from './StatusBadge';
 export default function LeadsTable({ customers, loading }) {
   if (loading) {
     return (
-      <div className="glass-card p-8 text-center">
-        <div className="inline-flex items-center gap-3 text-[var(--color-text-secondary)]">
-          <motion.div
-            animate={{ rotate: 360 }}
-            transition={{ duration: 1, repeat: Infinity, ease: 'linear' }}
-            className="w-5 h-5 border-2 border-[var(--color-gold-500)] border-t-transparent rounded-full"
-          />
-          Loading leads...
+      <div className="glass-card overflow-hidden">
+        {/* Skeleton header */}
+        <div className="grid grid-cols-[50px_1fr_1fr_140px] gap-4 px-6 py-3 bg-[var(--color-navy-700)]/50 border-b border-white/5">
+          {[...Array(4)].map((_, i) => (
+            <div key={i} className="h-3 rounded bg-white/10 animate-pulse" />
+          ))}
         </div>
+        {/* Skeleton rows */}
+        {[...Array(3)].map((_, i) => (
+          <div key={i} className="grid grid-cols-[50px_1fr_1fr_140px] gap-4 px-6 py-4 border-b border-white/5">
+            <div className="h-4 w-8 rounded bg-white/5 animate-pulse" />
+            <div className="h-4 rounded bg-white/5 animate-pulse" style={{ animationDelay: `${i * 0.1}s` }} />
+            <div className="h-4 w-3/4 rounded bg-white/5 animate-pulse" style={{ animationDelay: `${i * 0.15}s` }} />
+            <div className="h-6 w-24 rounded-full bg-white/5 animate-pulse" />
+          </div>
+        ))}
       </div>
     );
   }

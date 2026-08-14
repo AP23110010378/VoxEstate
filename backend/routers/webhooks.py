@@ -69,8 +69,13 @@ async def vapi_webhook(request: Request):
     company_id = metadata.get("company_id", "")
 
     if not customer_id or not company_id:
+        # FIX: Return 400 (not 200) so Vapi knows to retry.
+        # Returning 200 here caused leads to get permanently stuck in CALL_INITIATED.
         print("⚠️ Webhook missing customer_id or company_id in metadata")
-        return {"status": "error", "message": "Missing metadata"}
+        raise HTTPException(
+            status_code=400,
+            detail="Missing customer_id or company_id in call metadata"
+        )
 
     print(f"📝 Processing call for customer {customer_id}")
     print(f"   Transcript length: {len(transcript)} chars")

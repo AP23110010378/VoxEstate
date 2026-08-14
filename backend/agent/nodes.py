@@ -9,7 +9,7 @@ In LangGraph, a "node" is just a Python function that:
 
 Our system has 3 nodes:
 1. dispatch_node — Fetches leads and triggers Vapi calls
-2. evaluation_node — Sends transcript to Groq for classification
+2. evaluation_node — Sends transcript to OpenAI for classification
 3. state_update_node — Updates MongoDB with the result
 
 Each node is a simple async function. LangGraph handles the wiring.
@@ -96,10 +96,10 @@ async def evaluation_node(state: VoiceAgentState) -> dict:
     """
     NODE 2 — Evaluation (Transcript Classification)
 
-    Job: Take the call transcript and ask OpenAI to classify it.
+    Job: Take the call transcript and ask OpenAI GPT-4o-mini to classify it.
 
     This is called after Vapi sends us the webhook with the transcript.
-    The Groq LLM reads the conversation and decides:
+    The OpenAI LLM reads the conversation and decides:
     - QUALIFIED: person wants to buy/sell
     - NOT_INTERESTED: person said no
     - FAILED: unclear/disconnected

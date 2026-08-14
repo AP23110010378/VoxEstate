@@ -14,7 +14,11 @@ router = APIRouter(tags=["Customers"])
 
 
 @router.get("/customers", response_model=list[CustomerResponse])
-async def list_customers(company_id: str = Query(..., description="Company ObjectId")):
+async def list_customers(
+    company_id: str = Query(..., description="Company ObjectId"),
+    skip: int = Query(0, ge=0, description="Number of records to skip"),
+    limit: int = Query(100, ge=1, le=500, description="Max records to return"),
+):
     """
     Fetch all customers/leads for a given company.
 
@@ -30,9 +34,9 @@ async def list_customers(company_id: str = Query(..., description="Company Objec
     except Exception:
         raise HTTPException(status_code=400, detail="Invalid company_id format")
 
-    # Find all customers belonging to this company
+    # Find all customers belonging to this company, with pagination
     customers = []
-    cursor = db.customers.find({"company_id": company_oid}).sort("created_at", 1)
+    cursor = db.customers.find({"company_id": company_oid}).sort("created_at", 1).skip(skip).limit(limit)
 
     async for doc in cursor:
         customers.append(CustomerResponse(

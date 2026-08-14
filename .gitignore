@@ -1,0 +1,67 @@
+# ========================
+# Python
+# ========================
+__pycache__/
+*.py[cod]
+*.pyo
+*.pyd
+*.so
+*.egg
+*.egg-info/
+.eggs/
+venv/
+.venv/
+env/
+.env
+.env.local
+.env.production
+
+# ========================
+# Node / Frontend
+# ========================
+node_modules/
+dist/
+dist-ssr/
+.cache/
+.parcel-cache/
+*.local
+
+# ========================
+# IDE / Editors
+# ========================
+.vscode/
+.idea/
+*.swp
+*.swo
+*.sublime-workspace
+*.sublime-project
+
+# ========================
+# OS
+# ========================
+.DS_Store
+.DS_Store?
+Thumbs.db
+ehthumbs.db
+Desktop.ini
+
+# ========================
+# Docker
+# ========================
+*.log
+logs/
+
+# ========================
+# Testing & Coverage
+# ========================
+.pytest_cache/
+htmlcov/
+.coverage
+coverage.xml
+*.cover
+
+# ========================
+# Build artifacts
+# ========================
+*.pyc
+build/

@@ -1,0 +1,25 @@
+# FastAPI - our web framework (like Express for Python)
+fastapi==0.115.6
+uvicorn[standard]==0.34.0
+
+# MongoDB async driver - lets us talk to MongoDB without blocking
+motor==3.7.0
+
+# Data validation - defines the shape of our data
+pydantic==2.10.4
+pydantic-settings==2.7.1
+
+# LangGraph - AI agent orchestration framework by LangChain
+langgraph==0.2.60
+langchain-core==0.3.28
+
+# OpenAI - API for transcript classification
+openai
+# HTTP client - for calling Vapi API
+httpx==0.28.1
+
+# CORS middleware
+python-dotenv==1.0.1
+
+# Utilities
+python-dateutil==2.9.0
